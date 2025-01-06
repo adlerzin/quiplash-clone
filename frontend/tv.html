@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiplash - TV Mode</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tv.css">
+</head>
+<body>
+    <div class="container tv-mode">
+        <div id="tv-inicial" class="tela active">
+            <h1>Quiplash TV</h1>
+            <div class="tv-entrada">
+                <input type="text" id="codigo-sala" placeholder="Digite o código da sala" class="tv-input">
+                <button onclick="entrarComoTV()" class="tv-button">Conectar TV</button>
+            </div>
+        </div>
+
+        <div id="tv-aguardando" class="tela" style="display: none;">
+            <h2>Aguardando início do jogo...</h2>
+            <div id="tv-jogadores"></div>
+        </div>
+
+        <div id="tv-respondendo" class="tela" style="display: none;">
+            <h2>Jogadores estão respondendo...</h2>
+            <div id="tv-pergunta"></div>
+            <div id="tv-timer" class="tv-timer">60</div>
+            <div id="tv-status-respostas"></div>
+        </div>
+
+        <div id="tv-votacao" class="tela" style="display: none;">
+            <h2>Hora de votar!</h2>
+            <p id="tv-pergunta-votacao" class="tv-pergunta" style="font-size: 100px;"></p>
+            <div id="tv-respostas" class="tv-respostas-grid"></div>
+        </div>
+
+        <div id="tv-resultado-final" class="tela" style="display: none;">
+            <h2>🎉 Fim de Jogo! 🎉</h2>
+            <div id="tv-vencedor" class="tv-vencedor"></div>
+            <div id="tv-pontuacoes" class="tv-pontuacoes"></div>
+        </div>
+
+        <div class="sound-control">
+            <button id="toggle-sound" class="icon-button">
+                🔊
+            </button>
+        </div>
+    </div>
+    <script src="js/tv.js"></script>
+</body>
+</html> 

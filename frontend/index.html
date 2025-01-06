@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#4CAF50">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Quiplash Clone</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="tela-inicial" class="tela active">
+            <h1>Quiplash</h1>
+            <div id="connection-status" class="connection-status">
+                <span class="status-dot"></span>
+                <span class="status-text">Conectando...</span>
+                <button id="reconnect-button" class="hidden">Reconectar</button>
+            </div>
+            <div class="botoes">
+                <input type="text" id="nome-jogador" placeholder="Seu nome">
+                <button onclick="criarSala()">Criar Sala</button>
+                <div class="entrar-sala">
+                    <input type="text" id="codigo-sala" placeholder="Código da sala">
+                    <button onclick="entrarSala()">Entrar na Sala</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="lobby" class="tela" style="display: none;">
+            <h2>Lobby</h2>
+            <div class="codigo-sala-container">
+                <p>Código da sala: <span id="codigo-sala-display"></span></p>
+                <button id="copiar-codigo" class="icon-button" data-tooltip="Copiar código">
+                    📋
+                </button>
+            </div>
+            <div id="lista-jogadores"></div>
+            <button id="iniciar-jogo" style="display: none;">Iniciar Jogo</button>
+        </div>
+
+        <div id="tela-pergunta" class="tela" style="display: none;">
+            <h2>Rodada <span id="numero-rodada"></span></h2>
+            <p id="pergunta-atual"></p>
+            <div class="resposta-container">
+                <input type="text" id="resposta" placeholder="Sua resposta">
+                <button onclick="enviarResposta()">Enviar</button>
+            </div>
+            <div id="tempo-restante"></div>
+        </div>
+
+        <div id="tela-votacao" class="tela" style="display: none;">
+            <h2>Vote na melhor resposta!</h2>
+            <p id="pergunta-votacao"></p>
+            <div id="respostas-votacao"></div>
+        </div>
+
+        <div id="tela-resultado" class="tela" style="display: none;">
+            <h2>Resultados da Rodada</h2>
+            <div id="pontuacoes"></div>
+            <div id="proxima-rodada"></div>
+        </div>
+
+        <div id="tela-fim-jogo" class="tela" style="display: none;">
+            <h2>Fim de Jogo!</h2>
+            <div id="vencedor"></div>
+            <div id="pontuacoes-finais"></div>
+            <button onclick="voltarAoLobby()">Jogar Novamente</button>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+    <button class="theme-toggle" id="theme-toggle" data-tooltip="Alternar tema">
+        🌙
+    </button>
+</body>
+</html> 

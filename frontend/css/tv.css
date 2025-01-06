@@ -1,0 +1,335 @@
+.tv-mode {
+    max-width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 3rem;
+    box-sizing: border-box;
+    background-color: #1a1a1a;
+    color: white;
+    font-size: 24px; /* Base font size para TV */
+}
+
+/* Tela inicial */
+.tv-mode h1 {
+    font-size: 4em;
+    margin-bottom: 1em;
+    text-shadow: 0 0 20px rgba(76,175,80,0.5);
+}
+
+.tv-entrada {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tv-input {
+    font-size: 3em;
+    text-align: center;
+    padding: 30px;
+    border-radius: 20px;
+    border: 4px solid #4CAF50;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+
+.tv-button {
+    font-size: 2em;
+    padding: 30px;
+    border-radius: 15px;
+    background: #4CAF50;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.tv-button:hover {
+    transform: scale(1.05);
+    background: #45a049;
+}
+
+/* Tela de aguardando */
+#tv-jogadores {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 50px auto;
+    max-width: 1600px;
+}
+
+.tv-jogador {
+    background: rgba(255,255,255,0.1);
+    padding: 25px 40px;
+    border-radius: 15px;
+    font-size: 2em;
+    min-width: 300px;
+    text-align: center;
+    border: 2px solid rgba(76,175,80,0.3);
+}
+
+/* Tela de resposta */
+.tv-timer {
+    font-size: 12em;
+    font-weight: bold;
+    color: #4CAF50;
+    margin: 60px 0;
+    text-shadow: 0 0 30px rgba(76,175,80,0.5);
+}
+
+.tv-timer.acabando {
+    color: #f44336;
+    text-shadow: 0 0 30px rgba(244,67,54,0.5);
+}
+
+#tv-pergunta {
+    font-size: 3em;
+    margin: 40px 0;
+    line-height: 1.4;
+    max-width: 1600px;
+    margin: 40px auto;
+}
+
+/* Tela de votação */
+.tv-respostas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    margin: 60px auto;
+    max-width: 1800px;
+    padding: 0 30px;
+}
+
+.tv-resposta {
+    background: rgba(255,255,255,0.1);
+    padding: 40px;
+    border-radius: 20px;
+    font-size: 2em;
+    text-align: center;
+    transition: transform 0.3s;
+    border: 3px solid rgba(76,175,80,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tv-resposta-numero {
+    font-size: 2.5em;
+    color: #4CAF50;
+    text-shadow: 0 0 15px rgba(76,175,80,0.5);
+}
+
+.tv-resposta-texto {
+    font-size: 2em;
+    line-height: 1.4;
+}
+
+.tv-resposta-autor {
+    color: #4CAF50;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.tv-resposta-votos {
+    font-size: 1.2em;
+    color: #888;
+}
+
+/* Tela de resultados */
+.tv-vencedor {
+    font-size: 5em;
+    color: #4CAF50;
+    margin: 60px 0;
+    text-shadow: 0 0 30px rgba(76,175,80,0.5);
+    animation: pulse 2s infinite;
+}
+
+.tv-pontuacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tv-pontuacao {
+    background: rgba(255,255,255,0.1);
+    padding: 30px 50px;
+    border-radius: 15px;
+    font-size: 2.5em;
+    text-align: center;
+    border: 3px solid rgba(76,175,80,0.3);
+}
+
+/* Animações */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Headers gerais */
+.tv-mode h2 {
+    font-size: 3.5em;
+    margin: 40px 0;
+    color: #4CAF50;
+    text-shadow: 0 0 20px rgba(76,175,80,0.3);
+}
+
+.tv-mode h3 {
+    font-size: 2.5em;
+    margin: 30px 0;
+    color: #fff;
+}
+
+/* Media queries para TVs 4K */
+@media (min-width: 3840px) {
+    .tv-mode {
+        font-size: 36px;
+    }
+
+    .tv-respostas-grid {
+        grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+        max-width: 3200px;
+    }
+
+    #tv-pergunta {
+        max-width: 2400px;
+    }
+
+    .tv-pontuacoes {
+        max-width: 1800px;
+    }
+}
+
+/* Media queries para TVs menores */
+@media (max-width: 1280px) {
+    .tv-mode {
+        font-size: 18px;
+    }
+
+    .tv-respostas-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+/* Animações de transição entre telas */
+.tela {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    display: none;
+    width: 100%;
+}
+
+/* Garantir que a tela inicial seja visível */
+#tv-inicial {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tela.active {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
+}
+
+/* Animação para as respostas */
+.tv-resposta {
+    animation: slideIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+/* Delay sequencial para cada resposta */
+.tv-resposta:nth-child(1) { animation-delay: 0s; }
+.tv-resposta:nth-child(2) { animation-delay: 0.1s; }
+.tv-resposta:nth-child(3) { animation-delay: 0.2s; }
+.tv-resposta:nth-child(4) { animation-delay: 0.3s; }
+.tv-resposta:nth-child(5) { animation-delay: 0.4s; }
+.tv-resposta:nth-child(6) { animation-delay: 0.5s; }
+.tv-resposta:nth-child(7) { animation-delay: 0.6s; }
+.tv-resposta:nth-child(8) { animation-delay: 0.7s; }
+
+/* Animação para pontuações */
+.tv-pontuacao {
+    animation: countUp 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+/* Animações */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes countUp {
+    from {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.6s ease-in-out;
+}
+
+/* Adicionar ao CSS */
+.sound-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.sound-control button {
+    font-size: 2em;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.sound-control button:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+.sound-control button.muted {
+    opacity: 0.5;
+}
+
+#tv-timer-votacao {
+    font-size: 8em;
+    font-weight: bold;
+    color: #4CAF50;
+    margin: 30px 0;
+    text-shadow: 0 0 30px rgba(76,175,80,0.5);
+    transition: color 0.3s;
+}
+
+#tv-timer-votacao.acabando {
+    color: #f44336;
+    text-shadow: 0 0 30px rgba(244,67,54,0.5);
+    animation: pulse 1s infinite;
+} 
