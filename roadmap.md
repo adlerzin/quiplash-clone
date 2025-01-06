@@ -34,8 +34,8 @@ Este roadmap descreve o plano para recriar o jogo "Quiplash" usando HTML, CSS, J
 ## Etapas do Desenvolvimento
 
 ### 1. Configuração Inicial
-- [ ] Configurar ambiente de desenvolvimento (Python, WebSockets, etc.).
-- [ ] Criar estrutura básica do projeto (pastas para front-end e back-end).
+- [X] Configurar ambiente de desenvolvimento (Python, WebSockets, etc.).
+- [X] Criar estrutura básica do projeto (pastas para front-end e back-end).
 
 ### 2. Back-End (Python)
 - [ ] Configurar servidor WebSocket.
